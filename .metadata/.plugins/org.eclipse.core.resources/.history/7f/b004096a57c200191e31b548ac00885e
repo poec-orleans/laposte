@@ -1,0 +1,12 @@
+import javax.swing.JFrame;
+
+public class Accueil {
+
+	public static void main(String[] args) {
+		JFrame fenetre = new JFrame();
+		fenetre.setVisible(true);
+		// TODO Auto-generated method stub
+
+	}
+
+}
