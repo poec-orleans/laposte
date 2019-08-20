@@ -68,7 +68,8 @@ public class Accueil {
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				frame.setVisible(false);
+				Timbre.TimbreNormal(null);
 			}
 		});
 		btnNewButton_2.setBackground(new Color(30, 144, 255));
