@@ -64,7 +64,7 @@ public class Timbre {
 		lblTimbreLunit.setBounds(10, 108, 122, 14);
 		frame.getContentPane().add(lblTimbreLunit);
 		
-		
+		//
 				
 		
 		final JLabel textfieldsomme = new JLabel("0 €");
