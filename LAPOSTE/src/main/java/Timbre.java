@@ -1,10 +1,13 @@
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
 import java.awt.Button;
+import java.awt.Container;
+
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
@@ -102,10 +105,6 @@ public class Timbre {
 		spinner_1.setBounds(591, 105, 83, 20);
 		frame.getContentPane().add(spinner_1);
 		
-		button = new Button("Accueil");
-		button.setBounds(300, 429, 70, 22);
-		frame.getContentPane().add(button);	
-
-		
+	
 	}
 }
