@@ -65,6 +65,12 @@ public class Accueil {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Acheter des timbres");
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		btnNewButton_2.setBackground(new Color(30, 144, 255));
 		btnNewButton_2.setBounds(230, 236, 240, 90);
 		frame.getContentPane().add(btnNewButton_2);
