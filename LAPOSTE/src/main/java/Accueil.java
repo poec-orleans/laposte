@@ -7,6 +7,8 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Accueil {
 
@@ -40,12 +42,19 @@ public class Accueil {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Accueil");
 		frame.getContentPane().setBackground(new Color(255, 250, 205));
 		frame.setBounds(100, 100, 700, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Affranchir une lettre");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lettreprio.lettreprioritaire(null);
+			}
+		});
 		btnNewButton.setBackground(new Color(30, 144, 255));
 		btnNewButton.setBounds(230, 49, 240, 90);
 		frame.getContentPane().add(btnNewButton);
@@ -66,6 +75,13 @@ public class Accueil {
 		frame.getContentPane().add(txtrPoids);
 		
 		JButton btnConditionsDeVente = new JButton("Conditions de vente et tarifs");
+		btnConditionsDeVente.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				CDV.main(null);
+			}
+		});
 		btnConditionsDeVente.setBackground(new Color(30, 144, 255));
 		btnConditionsDeVente.setBounds(230, 330, 240, 90);
 		frame.getContentPane().add(btnConditionsDeVente);
