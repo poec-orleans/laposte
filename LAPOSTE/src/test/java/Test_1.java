@@ -6,6 +6,7 @@ public class Test_1 {
 
 	@Test
 	public void test0() {
+		
 		assertEquals(2, 2);
 	}
 	@Test
