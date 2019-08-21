@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -51,6 +53,13 @@ public class CDV extends JFrame {
 		JButton btnAccueil = new JButton("Accueil");
 		btnAccueil.setBounds(300, 410, 89, 23);
 		getContentPane().add(btnAccueil);
+		btnAccueil.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				Accueil.main(null);
+			}
+		});
 		
 
 	}

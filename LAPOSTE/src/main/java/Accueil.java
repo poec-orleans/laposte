@@ -96,5 +96,12 @@ public class Accueil {
 		JLabel lblPoids = new JLabel("Poids :");
 		lblPoids.setBounds(244, 15, 46, 14);
 		frame.getContentPane().add(lblPoids);
+		
+		
+		final JLabel label_2 = new JLabel("Dans mon panier : €");
+		label_2.setBounds(10, 436, 639, 14);
+		frame.getContentPane().add(label_2);
+
+		
 	}
 }

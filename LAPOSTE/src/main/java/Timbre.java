@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,16 +12,25 @@ import java.awt.Container;
 
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import javax.swing.SpinnerNumberModel;
+import java.awt.Font;
 
 public class Timbre {
 
 	private JFrame frame;
 	private JTextField txtTimbre;
+	
+	
 	private int nombre1;
 	private int nombre2;
 	private JSpinner spinner;
 	private JSpinner spinner_1;
+	private JSpinner spinner_1_1;
+	private JSpinner spinner1;
 	private Button button;
+	public int totalpanier;
 
 	/**
 	 * Launch the application.
@@ -49,17 +60,16 @@ public class Timbre {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(255, 250, 205));
+		frame.setBackground(new Color(255, 250, 205));
+		frame.setForeground(new Color(255, 250, 205));
+		frame.getContentPane().setForeground(new Color(255, 250, 205));
+		frame.setTitle("Acheter des timbres");
 		frame.setBounds(100, 100, 700, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		txtTimbre = new JTextField();
-		txtTimbre.setText("Timbre");
-		txtTimbre.setBounds(311, 0, 46, 20);
-		frame.getContentPane().add(txtTimbre);
-		txtTimbre.setColumns(10);
-		
-		JLabel lblTimbreAuCarnet = new JLabel("Timbre au carnet (10\u20AC)");
+		JLabel lblTimbreAuCarnet = new JLabel("10 timbres en carnet (9\u20AC)");
 		lblTimbreAuCarnet.setBounds(10, 60, 146, 14);
 		frame.getContentPane().add(lblTimbreAuCarnet);
 		
@@ -70,21 +80,39 @@ public class Timbre {
 		//
 				
 		
-		final JLabel textfieldsomme = new JLabel("0 €");
+		final JLabel textfieldsomme = new JLabel("Total à payer : 0 €");
 		textfieldsomme.setBounds(10, 155, 122, 14);
 		frame.getContentPane().add(textfieldsomme);
 	
+		JButton btnachat = new JButton("Continuer les achats !!!!!");
+		btnachat.setFont(new Font("Franklin Gothic Heavy", Font.PLAIN, 25));
+		btnachat.setBounds(175, 253, 344, 122);
+		frame.getContentPane().add(btnachat);
+		
+		final JLabel label_1 = new JLabel("Dans mon panier : "+totalpanier+" €");
+		label_1.setBounds(10, 436, 639, 14);
+		frame.getContentPane().add(label_1);
+		btnachat.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				Accueil.main(null);
+			}
+		});
 		
 		spinner = new JSpinner();
-		spinner_1 = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(0, 0, 100, 1));
+		spinner1 = new JSpinner();
 		
 		
 		spinner.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
-				Integer somme = (Integer) spinner.getValue() * 10;
+				Integer somme = (Integer) spinner.getValue() * 9;
 				nombre1 = somme;
 				String totalstr = Integer.toString(nombre1 + nombre2);
 				textfieldsomme.setText("Total à payer : "+totalstr+" €");
+				label_1.setText("Dans mon panier : "+totalstr+" €");
+			
 			}
 		});
 		
@@ -93,18 +121,32 @@ public class Timbre {
 		
 		
 		
-		spinner_1 = new JSpinner();
-		spinner_1.addChangeListener(new ChangeListener() {
+		spinner1 = new JSpinner();
+		spinner1.setModel(new SpinnerNumberModel(0, 0, 1000, 1));
+		spinner1.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				Integer somme2 = (Integer) spinner_1.getValue();
+				Integer somme2 = (Integer) spinner1.getValue();
 				nombre2 = somme2;
 				String totalstr = Integer.toString(nombre1 + nombre2);
 				textfieldsomme.setText("Total à payer : "+totalstr+" €");
+				label_1.setText("Dans mon panier : "+totalstr+" €");
 			}
 		});
-		spinner_1.setBounds(591, 105, 83, 20);
-		frame.getContentPane().add(spinner_1);
 		
-	
+		spinner1.setBounds(591, 105, 83, 20);
+		frame.getContentPane().add(spinner1);
+		
+		
+		JButton btnAccueil = new JButton("Accueil");
+		btnAccueil.setBounds(300, 398, 89, 23);
+		frame.getContentPane().add(btnAccueil);
+		btnAccueil.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.setVisible(false);
+				Accueil.main(null);
+			}
+		});
+		
 	}
 }
