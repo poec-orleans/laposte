@@ -135,7 +135,7 @@ public class Timbre {
 		
 		spinner1.setBounds(591, 105, 83, 20);
 		frame.getContentPane().add(spinner1);
-		
+		//test
 		
 		JButton btnAccueil = new JButton("Accueil");
 		btnAccueil.setBounds(300, 398, 89, 23);
